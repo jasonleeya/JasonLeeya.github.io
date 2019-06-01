@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[test]]></title>
-    <url>%2F2019%2F05%2F31%2Ftest%2F</url>
-    <content type="text"><![CDATA[test]]></content>
+    <title><![CDATA[Hexo主题NexT的配置]]></title>
+    <url>%2F2019%2F06%2F01%2FHexo%E4%B8%BB%E9%A2%98NexT%E7%9A%84%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"></content>
       <categories>
-        <category>test</category>
+        <category>技术贴</category>
       </categories>
       <tags>
-        <tag>test</tag>
+        <tag>hexo</tag>
+        <tag>NexT</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[Hello World,Hexo]]></title>
     <url>%2F2019%2F05%2F31%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[前言一直有自己搭建个人博客的想法，但工作在身一直没有时间折腾，偶然发现GitHub有个牛比的功能——GitHub Page，可以将静态博客页面托管到上面，而且通过Hexo框架可以快速生成博客网站，并通过MarkDown 生成文章。 建立博客步骤 安装Git 安装Node.Js 安装Hexo 创建GitHub仓库 生成SSH并添加到GitHub 将Hexo博客部署到GitHub 设置域名 发布文章 1.安装GitGit是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。我们通过它来对博客进行版本控制以及与GitHub进行连接，我们通过Git官网下载Git并安装。功能非常强大，有兴趣可以了解廖雪峰老师的Git教程。 2.安装Node.jsNode 是一个让 JavaScript 运行在服务端的开发平台，它让 JavaScript 成为与PHP、Python、Perl、Ruby等服务端语言平起平坐的脚本语言。Hexo是用Node.js编写的，所以需要安装Node.js以及Node.js的包管理工具NPM。 3.安装Hexo安装好Git与Node.js后，创建文件夹blog,进入blog文件夹（你也可以直接在桌面）按住shift+鼠标右键，右键菜单找到在此处打开CMD窗口,你也可以直接win+r输入cmd再cd到blog文件夹，执行命令： 1npm install -g hexo-cli 等安装完后用hexo v查看hexo版本确定是否安装成功 接下来初始化hexo: 1hexo init myblog //这个顺便取什么名字都行 然后安装依赖包： 1npm install 安装完后blog会多出很多文件夹以及文件： node_modules: 依赖包 public：存放生成的页面 scaffolds：生成文章的一些模板 source：用来存放你的文章以及资源 themes：主题 _config.yml: 博客的配置文件 执行： 12hexo g //generatehexo s //serve 打开服务器，并打开浏览器输入localhost:4000，就可以看到你创建的博客网站了。 命令行ctrl+c关掉服务器 4.创建GitHub仓库首先你得有个github账号，如果没得就去注册一个吧 注册完后在你的首页可以看到New repository，点击新建仓库 创建一个和你用户名相同（不一样域名会很长）的仓库，后面加上github.io（只有这样github才能将此仓库识别为GitHub Page仓库）。然后具体的git操作我将不再赘述，具体详见廖雪峰老师的Git教程。 5.生成SSH并添加到GitHub在你博客文件夹右键Git Bash Here,执行： 12git config --global user.name &quot;yourname&quot;git config --global user.email &quot;youremail&quot; 这里的yourname为你的Github用户名，youremail为你的Github绑定邮箱。 一路回车直到显示： 1ssh-keygen -t rsa -C &quot;youremail&quot; 输入你的邮箱并回车创建SSH,创建完成后会提示生成的.ssh文件的未知，找到这个文件夹,id_rsa为私钥，保存于电脑，不能将此分享给别人，id_rsa_pub为公钥，将此放到Github上，Github通过此与你电脑里的私钥进行匹配，只有匹配成功后才能git与你电脑进行文件传输。 进去Github，点击头像找到setting,找到侧边栏的SSH and GPG keys,点击New SSH key,输入窗口title可以随便填，将公钥内容填入key中。 gitbash执行： 1ssh -T git@github.com 查看公钥是否添加成功。 6.将hexo部署到github打开myblog文件夹下的配置文件 _config.yml，在文件最下面添加： 1234deploy: type: git repo: https://github.com/YourgithubName/YourgithubName.github.io.git branch: master repo为你的博客仓库地址。 打开命令行，cd到不可目录，安装deploy-git，这样才能用命令行将不可部署到Github 1npm install hexo-deployer-git --save 然后依次执行 123hexo cleanhexo generatehexo deploy hexo clean清除缓存，简写为hexo c可省略。hexo generate 生成静态文章，简写为hexo ghexo deploy 部署文章，简写为hexo d 待部署完成后你就可以到http://yourname.github.io查看的博客了。 7.域名设置你或许觉得github提供的域名太长，BIG不高，亦或许你有更好的域名，那没关系，GitHub Page可以实现自定义域名。 在阿里云或者腾讯云购买一个域名，具体怎么购买自行查阅相关资料，打开域名控制台，点击域名后面的解析添加解析，最好选CNAME解析，解析到你的项目地址。 进入Github中你的博客仓库点击setting,找到Custom domain，设置你的域名。 进入你的博客文件夹创建一个名为CNAME的文件，不要后缀，打开CNAME,写入你的域名（没有设置这个文件hexo的每次 deploy都将清除Github上你的Custom domain，每次都要重新进行设置） 这样，你就可以通过你自定义的域名进入你的博客了。 8.发布文章博客根目录下gitbash输入 1hexo new newpapername //newpapername为博客名 会在source/_post中生成新的博客，写完博客后 123hexo cleanhexo ghexo d 你就可以在你的博客下看到你新怎的博客了。]]></content>
+    <content type="text"><![CDATA[前言一直有自己搭建个人博客的想法，但工作在身一直没有时间折腾，偶然发现GitHub有个牛比的功能——GitHub Page，可以将静态博客页面托管到上面，而且通过Hexo框架可以快速生成博客网站，并通过MarkDown 生成文章。 建立博客步骤 安装Git 安装Node.Js 安装Hexo 创建GitHub仓库 生成SSH并添加到GitHub 将Hexo博客部署到GitHub 设置域名 发布文章 安装GitGit是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。我们通过它来对博客进行版本控制以及与GitHub进行连接，我们通过Git官网下载Git并安装。功能非常强大，有兴趣可以了解廖雪峰老师的Git教程。 安装Node.jsNode 是一个让 JavaScript 运行在服务端的开发平台，它让 JavaScript 成为与PHP、Python、Perl、Ruby等服务端语言平起平坐的脚本语言。Hexo是用Node.js编写的，所以需要安装Node.js以及Node.js的包管理工具NPM。 安装Hexo安装好Git与Node.js后，创建文件夹blog,进入blog文件夹（你也可以直接在桌面）按住shift+鼠标右键，右键菜单找到在此处打开CMD窗口,你也可以直接win+r输入cmd再cd到blog文件夹，执行命令： 1npm install -g hexo-cli 等安装完后用hexo v查看hexo版本确定是否安装成功 接下来初始化hexo: 1hexo init myblog //这个顺便取什么名字都行 然后安装依赖包： 1npm install 安装完后blog会多出很多文件夹以及文件： node_modules: 依赖包 public：存放生成的页面 scaffolds：生成文章的一些模板 source：用来存放你的文章以及资源 themes：主题 _config.yml: 博客的配置文件 执行： 12hexo g //generatehexo s //serve 打开服务器，并打开浏览器输入localhost:4000，就可以看到你创建的博客网站了。 命令行ctrl+c关掉服务器 创建GitHub仓库首先你得有个github账号，如果没得就去注册一个吧 注册完后在你的首页可以看到New repository，点击新建仓库 创建一个和你用户名相同（不一样域名会很长）的仓库，后面加上github.io（只有这样github才能将此仓库识别为GitHub Page仓库）。然后具体的git操作我将不再赘述，具体详见廖雪峰老师的Git教程。 生成SSH并添加到GitHub在你博客文件夹右键Git Bash Here,执行： 12git config --global user.name &quot;yourname&quot;git config --global user.email &quot;youremail&quot; 这里的yourname为你的Github用户名，youremail为你的Github绑定邮箱。 一路回车直到显示： 1ssh-keygen -t rsa -C &quot;youremail&quot; 输入你的邮箱并回车创建SSH,创建完成后会提示生成的.ssh文件的未知，找到这个文件夹,id_rsa为私钥，保存于电脑，不能将此分享给别人，id_rsa_pub为公钥，将此放到Github上，Github通过此与你电脑里的私钥进行匹配，只有匹配成功后才能git与你电脑进行文件传输。 进去Github，点击头像找到setting,找到侧边栏的SSH and GPG keys,点击New SSH key,输入窗口title可以随便填，将公钥内容填入key中。 gitbash执行： 1ssh -T git@github.com 查看公钥是否添加成功。 将hexo部署到github打开myblog文件夹下的配置文件 _config.yml，在文件最下面添加： 1234deploy: type: git repo: https://github.com/YourgithubName/YourgithubName.github.io.git branch: master repo为你的博客仓库地址。 打开命令行，cd到不可目录，安装deploy-git，这样才能用命令行将不可部署到Github 1npm install hexo-deployer-git --save 然后依次执行 123hexo cleanhexo generatehexo deploy hexo clean清除缓存，简写为hexo c可省略。hexo generate 生成静态文章，简写为hexo ghexo deploy 部署文章，简写为hexo d 待部署完成后你就可以到http://yourname.github.io查看的博客了。 域名设置你或许觉得github提供的域名太长，BIG不高，亦或许你有更好的域名，那没关系，GitHub Page可以实现自定义域名。 在阿里云或者腾讯云购买一个域名，具体怎么购买自行查阅相关资料，打开域名控制台，点击域名后面的解析添加解析，最好选CNAME解析，解析到你的项目地址。 进入Github中你的博客仓库点击setting,找到Custom domain，设置你的域名。 进入你的博客文件夹创建一个名为CNAME的文件，不要后缀，打开CNAME,写入你的域名（没有设置这个文件hexo的每次 deploy都将清除Github上你的Custom domain，每次都要重新进行设置） 这样，你就可以通过你自定义的域名进入你的博客了。 发布文章博客根目录下gitbash输入 1hexo new newpapername //newpapername为博客名 会在source/_post中生成新的博客，写完博客后 123hexo cleanhexo ghexo d 你就可以在你的博客下看到你新怎的博客了。]]></content>
       <categories>
-        <category>技术帖</category>
+        <category>技术贴</category>
       </categories>
       <tags>
         <tag>hexo</tag>
-        <tag>NexT</tag>
+        <tag>github</tag>
+        <tag>域名</tag>
       </tags>
   </entry>
 </search>
