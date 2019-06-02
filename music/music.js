@@ -28,6 +28,11 @@ const ap = new APlayer({
       artist: 'Eagles',
       url: 'http://music.163.com/song/media/outer/url?id=26289183.mp3',
       cover: 'http://p2.music.126.net/AgCNb4uf4kFwn-cccBf_Nw==/109951164017277247.jpg',
+    },{
+      name: "无心法师片头曲《贝加尔湖畔》",
+      artist: '潇潇指弹',
+      url: 'http://music.163.com/song/media/outer/url?id=447988800.mp3',
+      cover: 'http://p1.music.126.net/AI-4pRZrd1ZteDaGC2uHZw==/109951162825785389.jpg?param=130y130',
     },
   ]
 });
