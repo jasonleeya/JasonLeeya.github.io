@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[React基础课程学习]]></title>
+    <url>%2F2019%2F06%2F04%2FReact%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%2F</url>
+    <content type="text"><![CDATA[React基础课程学习raect]]></content>
+      <categories>
+        <category>学习历程</category>
+      </categories>
+      <tags>
+        <tag>自学 前端 React</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[博客迁移]]></title>
+    <url>%2F2019%2F06%2F04%2F%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo主题NexT的配置]]></title>
     <url>%2F2019%2F06%2F01%2FHexo%E4%B8%BB%E9%A2%98NexT%E7%9A%84%E9%85%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[test]]></content>
+    <content type="text"><![CDATA[前言个人认为Hexo提供的默认主题实在是太丑了，好在Hexo官方提供了很多主题可以选择:]]></content>
       <categories>
         <category>技术贴</category>
       </categories>
