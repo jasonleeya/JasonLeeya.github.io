@@ -19,7 +19,7 @@
   <entry>
     <title><![CDATA[Hexo主题NexT的配置]]></title>
     <url>%2F2019%2F06%2F01%2FHexo%E4%B8%BB%E9%A2%98NexT%E7%9A%84%E9%85%8D%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[前言个人认为Hexo提供的默认主题实在是太丑了，好在Hexo官方提供了很多主题可以选择https://hexo.io/themes经过细心挑选，我选择了NexT主题，NexT主题页面简洁优美，功能齐全，文档丰富，下面我将对NexT进行配置。 安装主题安装NexT只需要在博客更目录打开命令行输入： 1git clone https://github.com/theme-next/hexo-theme-next themes / next 启用NexT主题在]]></content>
+    <content type="text"><![CDATA[前言个人认为Hexo提供的默认主题实在是太丑了，好在Hexo官方提供了很多主题可以选择https://hexo.io/themes经过细心挑选，我选择了NexT主题，NexT主题页面简洁优美，功能齐全，文档丰富，下面我将对NexT进行配置。 安装主题安装NexT只需要在博客更目录打开命令行输入： 1git clone https://github.com/theme-next/hexo-theme-next themes / next 启用NexT主题打开站点配置文件：hexo/_config.yml找到theme更改如下： 1theme: next hexo s启动本地服务器控制台输出： 1INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop. 这是打开浏览器访问：http://localhost:4000，这是可以发现Hexo默认主题已经变为NexT主题。 NexT配置选择方案NexT支持四种不同风格的布局方案： Muse→默认方案，这是NexT的初始版本。使用黑白色调，主要看起来干净。 Mist →更紧凑的Muse版本，单列视图整齐。 Pisces→双栏计划，像你邻居的女儿一样新鲜。 Gemini→看起来像双鱼座，但有不同的带阴影的列块对视图更敏感。 这里我选择了Gemini,next// _config.yml搜索关键词schema配置如下： 1234#scheme: Muse#scheme: Mist#scheme: Piscesscheme: Gemini 语言选择NexT主题文字默认是英文的，hexo/config.yml搜索关键词language配置如下： 1language: zh-CN]]></content>
       <categories>
         <category>技术贴</category>
       </categories>
